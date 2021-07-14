@@ -5,4 +5,8 @@
     <RootNamespace>REST_web</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Models\carro.cs" />
+  </ItemGroup>
+
 </Project>

@@ -2,7 +2,37 @@
     ViewData["Title"] = "Home Page";
 }
 
+@{
+    CarClass ferrari = new CarClass("red", "Ferrari Enzo", 2002, 660);
+    CarClass uno = new CarClass("black", "Fiat Uno", 2010, 70);
+    CarClass mustang = new CarClass("blue", "Ford Mustang", 1967, 163);
+    ferrari.setImage("images/ferrari-enzo.jpg");
+    uno.setImage("images/uno-2010.jpg");
+    mustang.setImage("images/ford-mustang-1967.jpg");
+    CarClass[] carros = { ferrari, mustang, uno, ferrari, mustang, uno, ferrari, mustang, uno };
+    int i = -1;
+}
+@for (i = 0; i < carros.Length / 3; i++) {
+    <div class="container">
+        <div class="row">
+            @for (int j = 0; j < 3; j++) {
+                <div class="col-sm">
+                    <div class="card, mx-auto" style="width: 18rem;">
+                        <img class="card-img-top" src=@carros[i + j].getImage() alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@carros[i + j].getName()</h5>
+                            <p class="card-text">Year: @carros[i + j].getYear()</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
